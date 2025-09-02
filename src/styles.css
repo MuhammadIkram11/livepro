@@ -18,6 +18,7 @@ body {
   color: var(--text);
   background: linear-gradient(135deg, var(--bg1), var(--bg2));
   overflow-x: hidden;
+  min-width: 320px; /* Prevent extremely narrow layouts */
 }
 
 .container {
@@ -81,7 +82,9 @@ h1, h2, h3 { margin: 0 0 10px; }
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 100;
+  z-index: 1000;
+  overflow: hidden; /* Prevent stickers from causing horizontal scroll */
+  isolation: isolate; /* Create new stacking context */
 }
 
 .corner-sticker {
@@ -90,7 +93,7 @@ h1, h2, h3 { margin: 0 0 10px; }
   height: 80px;
   object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-  z-index: 101;
+  z-index: 1001;
 }
 
 .moving-sticker {
@@ -99,7 +102,13 @@ h1, h2, h3 { margin: 0 0 10px; }
   height: 100px;
   object-fit: contain;
   filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
-  z-index: 102;
+  z-index: 1002;
+  max-width: 100vw;
+  max-height: 100vh;
+  pointer-events: none;
+  visibility: visible !important;
+  display: block !important;
+  opacity: 1 !important;
 }
 
 /* Moving Stickers for other pages */
@@ -1128,5 +1137,16 @@ h1, h2, h3 { margin: 0 0 10px; }
   
   .poetry-showcase {
     gap: 20px;
+  }
+  
+  /* Mobile sticker adjustments */
+  .corner-sticker {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .moving-sticker {
+    width: 60px;
+    height: 60px;
   }
 }

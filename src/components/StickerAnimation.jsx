@@ -27,9 +27,9 @@ export default function StickerAnimation() {
       case "top-right":
         return { top: "20px", right: "20px" };
       case "bottom-left":
-        return { bottom: "20px", left: "20px" };
+        return { bottom: "60px", left: "20px" };
       case "bottom-right":
-        return { bottom: "20px", right: "20px" };
+        return { bottom: "60px", right: "20px" };
       default:
         return {};
     }
@@ -75,50 +75,33 @@ export default function StickerAnimation() {
         alt="Moving Sticker 3"
         className="moving-sticker"
         initial={{ 
-          y: "120vh", // Start from bottom off-screen
+          y: "120vh",
           opacity: 0,
           scale: 0.5,
-          x: "50vw"
+          x: "50%"
         }}
         animate={{
-          y: isAnimationComplete ? [
-            "32vh", // Above heading - top
-            "35vh", // Around heading - top right
-            "40vh", // Around heading - right
-            "45vh", // Around heading - bottom right
-            "48vh", // Below heading - bottom
-            "45vh", // Around heading - bottom left
-            "40vh", // Around heading - left
-            "35vh"  // Around heading - top left
-          ] : ["120vh", "40vh"], // Enter from bottom to heading area
-          opacity: [0, 1, 1, 1, 1, 1, 1, 1],
-          scale: isAnimationComplete ? [
-            1, 1.1, 0.9, 1.05, 0.95, 1.08, 1.02, 1
-          ] : [0.5, 1],
-          x: isAnimationComplete ? [
-            "50vw", // Heading center
-            "65vw", // Around heading - top right
-            "70vw", // Around heading - right
-            "65vw", // Around heading - bottom right
-            "50vw", // Around heading - bottom
-            "35vw", // Around heading - bottom left
-            "30vw", // Around heading - left
-            "35vw"  // Around heading - top left
-          ] : ["50vw", "50vw"], // Stay centered during entrance
-          rotate: isAnimationComplete ? [0, 45, 90, 135, 180, 225, 270, 315, 360] : [0, 0]
+          y: isAnimationComplete ? "40vh" : "40vh",
+          opacity: 1,
+          scale: 1,
+          x: isAnimationComplete ? "50%" : "50%",
+          rotate: isAnimationComplete ? 360 : 0
         }}
         transition={{
-          duration: isAnimationComplete ? 12 : 3,
+          duration: isAnimationComplete ? 8 : 3,
           delay: isAnimationComplete ? 0 : 1.2,
           ease: "easeInOut",
-          repeat: Infinity,
-          repeatType: isAnimationComplete ? "loop" : "none"
+          repeat: isAnimationComplete ? Infinity : 0,
+          repeatType: "loop"
         }}
         style={{
           position: "absolute",
           width: "80px",
           height: "80px",
-          zIndex: 20
+          zIndex: 1002,
+          transform: "translateX(-50%)",
+          maxWidth: "100vw",
+          maxHeight: "100vh"
         }}
       />
     </div>
