@@ -1,0 +1,1132 @@
+:root {
+  --bg1: #ffe3f1; /* pastel pink */
+  --bg2: #e6e6ff; /* pastel purple */
+  --text: #4a3b47; /* soft dark */
+  --accent: #ff69b4; /* hot pink */
+  --accent-2: #9b72f2; /* lavender */
+  --card: #ffffffaa;
+  --gold: #ffd700; /* soft gold */
+  --sky: #87ceeb; /* sky blue */
+  --rose: #ffb6c1; /* light rose */
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  padding: 28px;
+  margin: 20px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+h1, h2, h3 { margin: 0 0 10px; }
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.button {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.button:active { transform: scale(0.98); }
+
+.button-primary { background: var(--accent); color: white; box-shadow: 0 6px 18px rgba(255,105,180,.35); }
+.button-ghost { background: #fff; color: var(--accent-2); border: 2px solid var(--accent-2); }
+
+.footer-note { text-align: center; opacity: .7; font-size: 14px; padding: 16px 0 40px; }
+
+/* Cute floating hearts background */
+.hearts-bg {
+  position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0;
+}
+.heart { position: absolute; font-size: 20px; opacity: .25; animation: floatUp 8s linear infinite; }
+@keyframes floatUp {
+  0% { transform: translateY(120%); opacity: .15; }
+  60% { opacity: .35; }
+  100% { transform: translateY(-10%); opacity: 0; }
+}
+
+/* Sticker Animation Styles */
+.sticker-animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.corner-sticker {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+  z-index: 101;
+}
+
+.moving-sticker {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+  z-index: 102;
+}
+
+/* Moving Stickers for other pages */
+.moving-stickers-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.moving-sticker-item {
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+  transition: all 0.3s ease;
+}
+
+.moving-sticker-item:hover {
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+  transform: scale(1.1);
+}
+
+/* Timeline */
+.timeline { position: relative; padding-left: 22px; }
+.timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 4px; background: linear-gradient(var(--accent), var(--accent-2)); border-radius: 4px; }
+.timeline-item { margin: 14px 0; background: #fff; border-radius: 12px; padding: 12px 14px; box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+.timeline-emoji { font-size: 20px; margin-right: 8px; }
+
+/* Password Page Styles */
+.password-page {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.lock-container {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.lock-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.lock-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lock-subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.password-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 16px 20px;
+  border: 3px solid var(--accent-2);
+  border-radius: 50px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.password-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(255,105,180,0.3);
+}
+
+.password-input.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.unlock-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(255,105,180,0.4);
+  transition: all 0.3s ease;
+}
+
+.unlock-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255,105,180,0.6);
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.floating-hearts {
+  position: relative;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.heart-float {
+  position: absolute;
+  font-size: 24px;
+  animation: floatAround 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatAround {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(20px, -20px) rotate(90deg); }
+  50% { transform: translate(0, -40px) rotate(180deg); }
+  75% { transform: translate(-20px, -20px) rotate(270deg); }
+}
+
+/* Urdu Poetry Display Styles */
+.urdu-poetry-display {
+  margin: 30px 0;
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,182,193,0.3));
+  border-radius: 20px;
+  border: 2px solid var(--rose);
+  box-shadow: 0 8px 25px rgba(255,182,193,0.3);
+}
+
+.poetry-urdu {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 15px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.poetry-transliteration {
+  font-size: 16px;
+  color: var(--accent-2);
+  margin-bottom: 10px;
+  text-align: center;
+  font-style: italic;
+}
+
+.poetry-english {
+  font-size: 18px;
+  color: var(--text);
+  text-align: center;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Welcome Page Styles */
+.welcome-page {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.welcome-container {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.big-heart {
+  font-size: 120px;
+  margin-bottom: 30px;
+}
+
+.welcome-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcome-message {
+  font-size: 20px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.welcome-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.sparkle {
+  font-size: 24px;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+}
+
+.next-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  border: none;
+  padding: 18px 36px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(255,105,180,0.4);
+  transition: all 0.3s ease;
+}
+
+.next-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255,105,180,0.6);
+}
+
+.floating-elements {
+  position: relative;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.float-element {
+  position: absolute;
+  font-size: 28px;
+  animation: floatAround 5s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+/* How We Met Page Styles */
+.how-we-met-page {
+  width: 100%;
+  max-width: 700px;
+}
+
+.story-container {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.story-title {
+  font-size: 36px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.story-intro {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.story-timeline {
+  margin-bottom: 40px;
+}
+
+.story-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.story-item:hover {
+  transform: translateX(10px);
+}
+
+.story-emoji {
+  font-size: 32px;
+  min-width: 50px;
+}
+
+.story-text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.story-reflection {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.nav-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255,105,180,0.4);
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255,105,180,0.6);
+}
+
+.prev-button {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+}
+
+.floating-story-elements {
+  position: relative;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.float-story {
+  position: absolute;
+  font-size: 24px;
+  animation: floatAround 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Our Journey Page Styles */
+.our-journey-page {
+  width: 100%;
+  max-width: 700px;
+}
+
+.journey-container {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.journey-title {
+  font-size: 36px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.journey-intro {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.journey-memories {
+  margin-bottom: 40px;
+}
+
+.memory-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.memory-item:hover {
+  transform: translateX(10px);
+}
+
+.memory-emoji {
+  font-size: 32px;
+  min-width: 50px;
+}
+
+.memory-text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.urdu-poetry-section {
+  margin: 40px 0;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(135,206,235,0.2));
+  border-radius: 20px;
+  border: 2px solid var(--sky);
+  box-shadow: 0 8px 25px rgba(135,206,235,0.3);
+}
+
+.poetry-title {
+  text-align: center;
+  font-size: 24px;
+  color: var(--sky);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.poetry-display {
+  text-align: center;
+}
+
+.journey-reflection {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.floating-journey-elements {
+  position: relative;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.float-journey {
+  position: absolute;
+  font-size: 24px;
+  animation: floatAround 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* How We Are Now Page Styles */
+.how-we-are-now-page {
+  width: 100%;
+  max-width: 700px;
+}
+
+.now-container {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.now-title {
+  font-size: 36px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.now-message {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.now-hearts {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.beating-heart {
+  font-size: 80px;
+}
+
+.left-heart {
+  animation-delay: 0s;
+}
+
+.right-heart {
+  animation-delay: 0.6s;
+}
+
+.now-reflection {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.now-feelings {
+  margin-bottom: 40px;
+}
+
+.feeling-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.feeling-emoji {
+  font-size: 24px;
+  min-width: 40px;
+}
+
+.floating-now-elements {
+  position: relative;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.float-now {
+  position: absolute;
+  font-size: 24px;
+  animation: floatAround 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Why I Like You Page Styles */
+.why-i-like-you-page {
+  width: 100%;
+  max-width: 700px;
+}
+
+.reasons-container {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.reasons-title {
+  font-size: 36px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.reasons-intro {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.reasons-list {
+  margin-bottom: 40px;
+}
+
+.reason-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.reason-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.reason-bullet {
+  font-size: 24px;
+  min-width: 40px;
+}
+
+.reason-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.reasons-conclusion {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.floating-reasons-elements {
+  position: relative;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.float-reason {
+  position: absolute;
+  font-size: 24px;
+  animation: floatAround 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Urdu Poetry Page Styles */
+.urdu-poetry-page {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.poetry-container {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.poetry-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.poetry-intro {
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.poetry-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.poetry-card {
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,182,193,0.2));
+  border-radius: 20px;
+  border: 2px solid var(--rose);
+  box-shadow: 0 8px 25px rgba(255,182,193,0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.poetry-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(255,182,193,0.4);
+}
+
+.poetry-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 12px 35px rgba(255,105,180,0.4);
+}
+
+.poetry-urdu-main {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.poetry-transliteration-main {
+  font-size: 18px;
+  color: var(--accent-2);
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.poetry-english-main {
+  font-size: 20px;
+  color: var(--text);
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.poetry-indicator {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+}
+
+.poetry-instruction {
+  margin-bottom: 30px;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.poetry-reflection {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.floating-poetry-elements {
+  position: relative;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.float-poetry {
+  position: absolute;
+  font-size: 24px;
+  animation: floatAround 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Proposal Page Styles */
+.proposal-page {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.proposal-container {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.proposal-intro h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.reveal-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  border: none;
+  padding: 18px 36px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(255,105,180,0.4);
+  transition: all 0.3s ease;
+}
+
+.reveal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255,105,180,0.6);
+}
+
+.big-question {
+  margin: 40px 0;
+}
+
+.proposal-question {
+  font-size: 48px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.proposal-buttons {
+  position: relative;
+  margin: 40px 0;
+  min-height: 200px;
+}
+
+.yes-button {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(76,175,80,0.4);
+  transition: all 0.3s ease;
+}
+
+.yes-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(76,175,80,0.6);
+}
+
+.no-button {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+.celebration {
+  margin: 40px 0;
+}
+
+.celebration-text {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.celebration-hearts {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.celebration-message {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.floating-proposal-elements {
+  position: relative;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.float-proposal {
+  position: absolute;
+  font-size: 24px;
+  animation: floatAround 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Final Page Styles */
+.final-page {
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.final-container {
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.final-heart {
+  font-size: 100px;
+  margin-bottom: 30px;
+}
+
+.final-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.final-message {
+  font-size: 20px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.final-reflection {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.music-section {
+  margin-bottom: 40px;
+}
+
+.music-section h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+.final-quote {
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  padding: 20px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 16px;
+}
+
+.final-signature {
+  margin-bottom: 40px;
+}
+
+.signature-name {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.floating-final-elements {
+  position: relative;
+  height: 120px;
+  margin-top: 30px;
+}
+
+.float-final {
+  position: absolute;
+  font-size: 24px;
+  animation: floatAround 5s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container { padding: 16px; }
+  
+  .lock-container,
+  .welcome-container,
+  .story-container,
+  .journey-container,
+  .now-container,
+  .reasons-container,
+  .poetry-container,
+  .proposal-container,
+  .final-container {
+    padding: 30px 20px;
+  }
+  
+  .proposal-question {
+    font-size: 32px;
+  }
+  
+  .big-heart {
+    font-size: 80px;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-button {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .poetry-urdu,
+  .poetry-urdu-main {
+    font-size: 24px;
+  }
+  
+  .poetry-showcase {
+    gap: 20px;
+  }
+}
