@@ -5,10 +5,10 @@ export default function MovingStickers() {
   const stickers = [
     { src: "/teddy-bear-1.png", alt: "Teddy Bear 1", delay: 0, color: "#FFB6C1" },
     { src: "/teddy-bear-2.png", alt: "Teddy Bear 2", delay: 1, color: "#98FB98" },
-    { src: "/teddy3.png", alt: "NAN", delay: 2, color: "#87CEEB" },
+    { src: "/teddy-3.png", alt: "Teddy 3", delay: 2, color: "#87CEEB" },
     { src: "/love.png", alt: "Love", delay: 3, color: "#DDA0DD" },
-    { src: "/sticker_8.avif", alt: "Sticker 8", delay: 4, color: "#F0E68C" },
-    { src: "/sticker_30.avif", alt: "Sticker 30", delay: 5, color: "#FFA07A" },
+    { src: "/teddy.png", alt: "Teddy", delay: 4, color: "#F0E68C" },
+    { src: "/sticker_8.avif", alt: "Sticker 8", delay: 5, color: "#FFA07A" },
     { src: "/teddy3.png", alt: "Teddy3", delay: 6, color: "#20B2AA" },
   ];
 
