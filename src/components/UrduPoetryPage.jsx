@@ -33,7 +33,7 @@ export default function UrduPoetryPage({ onNext, onPrevious }) {
           transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
           className="poetry-title"
         >
-          Romantic Urdu Poetry 🌹
+          Poetry 🌹
         </motion.h1>
         
         <motion.p
