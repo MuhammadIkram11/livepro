@@ -4,7 +4,7 @@ export const proposalConfig = {
   herName: " Darling🌹", 
   
   // 🔐 The secret password to unlock your love story
-  password: "LoveYou",         
+  password: "IkramsLove",         
   
   // 🎵 Your romantic songs (place MP3 files in /public/assets folder)
   music: {
