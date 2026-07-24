@@ -34,42 +34,42 @@ export default function App() {
         return <WelcomePage onNext={() => goToPage('how-we-met')} />
       case 'how-we-met':
         return (
-          <HowWeMetPage 
-            onNext={() => goToPage('our-journey')} 
-            onPrevious={() => goToPage('welcome')} 
+          <HowWeMetPage
+            onNext={() => goToPage('our-journey')}
+            onPrevious={() => goToPage('welcome')}
           />
         )
       case 'our-journey':
         return (
-          <OurJourneyPage 
-            onNext={() => goToPage('how-we-are-now')} 
-            onPrevious={() => goToPage('how-we-met')} 
+          <OurJourneyPage
+            onNext={() => goToPage('how-we-are-now')}
+            onPrevious={() => goToPage('how-we-met')}
           />
         )
       case 'how-we-are-now':
         return (
-          <HowWeAreNowPage 
-            onNext={() => goToPage('why-i-like-you')} 
-            onPrevious={() => goToPage('our-journey')} 
+          <HowWeAreNowPage
+            onNext={() => goToPage('why-i-like-you')}
+            onPrevious={() => goToPage('our-journey')}
           />
         )
       case 'why-i-like-you':
         return (
-          <WhyILikeYouPage 
-            onNext={() => goToPage('urdu-poetry')} 
-            onPrevious={() => goToPage('how-we-are-now')} 
+          <WhyILikeYouPage
+            onNext={() => goToPage('urdu-poetry')}
+            onPrevious={() => goToPage('how-we-are-now')}
           />
         )
       case 'urdu-poetry':
         return (
-          <UrduPoetryPage 
-            onNext={() => goToPage('proposal')} 
-            onPrevious={() => goToPage('why-i-like-you')} 
+          <UrduPoetryPage
+            onNext={() => goToPage('proposal')}
+            onPrevious={() => goToPage('why-i-like-you')}
           />
         )
       case 'proposal':
         return (
-          <ProposalPage 
+          <ProposalPage
             onPrevious={() => goToPage('urdu-poetry')}
             onProposalAccepted={handleProposalAccepted}
           />

@@ -1,7 +1,7 @@
 // 💖 Proposal Configuration - Personalize this for your special someone! 💖
 export const proposalConfig = {
   // 🌸 Her beautiful name (will appear throughout the website)
-  herName: "Love of My Life 🌹", 
+  herName: " Darling🌹", 
   
   // 🔐 The secret password to unlock your love story
   password: "LoveYou",         
@@ -90,7 +90,7 @@ export const proposalConfig = {
     finalQuote: "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine. 💝",
     
     // Your signature
-    yourSignature: "Abdul Gaffar" 
+    yourSignature: "Ikram" 
   },
   
   // 🎨 Customize colors for the romantic Urdu theme
